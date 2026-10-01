@@ -11533,8 +11533,8 @@ let CurrentGuessAmount = 0;
 let currentCorrect = false;
 let endScreen = false;
 
-let keyboardFontSize = 15;
-let keyboardFontSpacing = 10;
+let keyboardFontSize = 13;
+let keyboardFontSpacing = 8;
 let keyAreaSpacing = 5;
 let borderSize = 1;
 let keyboardStartingX = 100;
@@ -11586,6 +11586,7 @@ let keyboardValue = {
 let currentWord = "";
 
 function setup() {
+  document.body.style.backgroundColor = "#b7e2ff";
   resetSizes();
   ResetWord();
   createKeyboard();
@@ -11619,7 +11620,6 @@ function createGrid() {
 }
 
 function resetSizes() {
-  
   letterSpacing = windowHeight / 20;
   fontSize = windowHeight / 20;
   
@@ -11668,11 +11668,11 @@ function guess(input) {
     }
 
     else {
-      createText(input[i], "lightgrey");
+      createText(input[i], "grey");
 
       let index = keyboard.indexOf(input[i]);
 
-      keyboardDivs[index].style('background-color', "red");
+      keyboardDivs[index].style('background-color', "grey");
     }
   }
 
@@ -11744,7 +11744,7 @@ function resetAnswer() {
   currentWord = "";
 
   for (let text of keyboardDivs) {
-    text.style("background-color", "lightgrey");
+    text.style("background-color", "white");
   }
 
   for (const key of Object.keys(keyboardValue)) {
@@ -11867,7 +11867,7 @@ function createKeyboard() {
       xInc = 1.5;
     }
 
-    createKeyText(keyboard[i], "lightgrey", keyboardStartingX + xInc * keyboardFontSpacing + xInc * keyAreaSpacing, keyboardStartingY + yInc * (keyboardFontSpacing + borderSize) + yInc * keyAreaSpacing);
+    createKeyText(keyboard[i], "white", keyboardStartingX + xInc * keyboardFontSpacing + xInc * keyAreaSpacing, keyboardStartingY + yInc * (keyboardFontSpacing + borderSize) + yInc * keyAreaSpacing);
     xInc += 1;
   }
 }
